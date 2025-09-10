@@ -11,6 +11,50 @@
       font-family: 'Roboto', sans-serif;
       color: #fff;
       line-height: 1.6;
+      background: #000;
+    }
+
+    /* Quiz Gate */
+    #quiz-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      text-align: center;
+      padding: 20px;
+    }
+    #quiz-container h2 {
+      margin-bottom: 20px;
+    }
+    .quiz-option {
+      display: block;
+      margin: 10px 0;
+      padding: 12px 20px;
+      background: #f1c40f;
+      color: #000;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    .quiz-option:hover {
+      transform: scale(1.05);
+      background: #e67e22;
+      color: #fff;
+    }
+    #quiz-error {
+      margin-top: 15px;
+      color: #e74c3c;
+      display: none;
+    }
+
+    /* Ẩn nội dung chính ban đầu */
+    #main-content { display: none; }
+
+    /* --- Background động với ảnh + zoom --- */
+    body.bg-active {
       background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
       background-size: cover;
       animation: zoomBG 30s infinite alternate ease-in-out;
@@ -29,6 +73,7 @@
       align-items: center;
     }
 
+    /* --- Avatar glow pulse --- */
     .avatar {
       width: 150px;
       height: 150px;
@@ -40,10 +85,12 @@
       margin-bottom: 20px;
     }
     @keyframes pulse {
-      0%,100% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
+      0% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
       50% { box-shadow: 0 0 40px rgba(241,196,15,1); }
+      100% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
     }
 
+    /* --- Tiêu đề typing gradient --- */
     h1 {
       font-size: 2.5em;
       background: linear-gradient(90deg, #f1c40f, #e67e22, #e74c3c);
@@ -60,29 +107,11 @@
     @keyframes typing { from { width: 0; } to { width: 100%; } }
     @keyframes blink { 50% { border-color: transparent; } }
 
-    /* Visualizer */
-    .visualizer {
-      display: flex;
-      gap: 4px;
-      margin: 15px 0 25px;
-      height: 40px;
-      align-items: flex-end;
+    p {
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 600px;
     }
-    .bar {
-      width: 6px;
-      background: linear-gradient(180deg, #f1c40f, #e74c3c);
-      animation: bounce 1s infinite ease-in-out;
-    }
-    .bar:nth-child(2) { animation-delay: 0.1s; }
-    .bar:nth-child(3) { animation-delay: 0.2s; }
-    .bar:nth-child(4) { animation-delay: 0.3s; }
-    .bar:nth-child(5) { animation-delay: 0.4s; }
-    @keyframes bounce {
-      0%,100% { height: 10px; }
-      50% { height: 40px; }
-    }
-
-    p { font-size: 1.2em; text-align: center; max-width: 600px; }
 
     blockquote {
       margin: 20px 0;
@@ -95,6 +124,7 @@
       text-align: center;
     }
 
+    /* --- H2 wave underline --- */
     h2 {
       position: relative;
       display: inline-block;
@@ -117,6 +147,7 @@
       100% { transform: scaleX(0); }
     }
 
+    /* --- Intro grid --- */
     .intro-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -138,6 +169,7 @@
       background: rgba(255,255,255,0.15);
     }
 
+    /* --- 3 cột thi từ --- */
     .three-columns {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -149,6 +181,7 @@
     }
     .three-columns li { margin-bottom: 8px; }
 
+    /* --- Social links --- */
     .social-links {
       margin-top: 40px;
       display: flex;
@@ -173,8 +206,14 @@
       color: #000;
     }
 
-    footer { margin-top: 50px; text-align: center; font-size: 0.9em; color: #ccc; }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+    }
 
+    /* --- Nút nhạc --- */
     .music-btn {
       margin-top: 20px;
       padding: 12px 24px;
@@ -193,6 +232,7 @@
       color: #fff;
     }
 
+    /* --- Fade-in scroll --- */
     .fade-in { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -205,69 +245,76 @@
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <img src="avt.jpg" alt="Ảnh đại diện Thanh Huy" class="avatar"/>
+  <!-- Quiz Gate -->
+  <div id="quiz-container">
+    <h2>📝 Trước khi vào trang, trả lời câu hỏi:</h2>
+    <p>Tác giả câu "Thiên sinh ngã tài tất hữu dụng" là ai?</p>
+    <div class="quiz-option" onclick="checkAnswer('A')">A. Đỗ Phủ</div>
+    <div class="quiz-option" onclick="checkAnswer('B')">B. Lý Bạch</div>
+    <div class="quiz-option" onclick="checkAnswer('C')">C. Vương Duy</div>
+    <p id="quiz-error">❌ Sai rồi, thử lại nhé!</p>
+  </div>
 
-    <!-- Visualizer -->
-    <div class="visualizer">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
+  <!-- Nội dung chính -->
+  <div id="main-content" class="bg-active">
+    <div class="overlay">
+      <img src="avt.jpg" alt="Ảnh đại diện Thanh Huy" class="avatar"/>
 
-    <h1>Xin chào, tôi là Thanh Huy (Captain)</h1>
-    <p>Bạn dễ thương lắm mới vào xem trang cá nhân của mình á hehe!</p>
+      <!-- Nhạc nền -->
+      <audio id="bg-music" autoplay loop>
+        <source src="nhac.mp3" type="audio/mpeg">
+      </audio>
+      <button class="music-btn" onclick="toggleMusic()">🎵 Bật / Tắt nhạc</button>
 
-    <blockquote class="fade-in">
-      "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
-    </blockquote>
+      <h1>Xin chào, tôi là Thanh Huy (Captain)</h1>
+      <p>Bạn dễ thương lắm mới vào xem trang cá nhân của mình á hehe!</p>
 
-    <h2>Giới thiệu bản thân</h2>
-    <div class="intro-grid">
-      <div class="intro-card fade-in">
-        <h3>👤 Về tôi</h3>
-        <p>Hiện tại tôi quan tâm nhiều đến công nghệ và triết học phương Đông.</p>
+      <blockquote class="fade-in">
+        "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
+      </blockquote>
+
+      <!-- 3 cột giới thiệu -->
+      <h2>Giới thiệu bản thân</h2>
+      <div class="intro-grid">
+        <div class="intro-card fade-in">
+          <h3>👤 Về tôi</h3>
+          <p>Hiện tại tôi quan tâm nhiều đến công nghệ và triết học phương Đông.</p>
+        </div>
+        <div class="intro-card fade-in">
+          <h3>🎯 Sở thích</h3>
+          <p>Đọc sách, học hỏi các tư tưởng cổ điển, viết code web và kết nối với bạn bè qua mạng xã hội.</p>
+        </div>
+        <div class="intro-card fade-in">
+          <h3>🚀 Mục tiêu</h3>
+          <p>Phát triển bản thân không ngừng, đóng góp cho cộng đồng, và theo đuổi một cuộc sống ý nghĩa.</p>
+        </div>
       </div>
-      <div class="intro-card fade-in">
-        <h3>🎯 Sở thích</h3>
-        <p>Đọc sách, học hỏi các tư tưởng cổ điển, viết code web và kết nối với bạn bè qua mạng xã hội.</p>
+
+      <!-- Danh sách 10 câu thi từ -->
+      <h2>10 câu thi từ tôi yêu thích</h2>
+      <ul class="three-columns fade-in">
+        <li>Quân tử chi giao đạm nhược thủy</li>
+        <li>Phù vân du tử, bất khả cư luyến</li>
+        <li>Thiên sinh ngã tài tất hữu dụng</li>
+        <li>Đào lý bất ngôn, hạ tự thành khê</li>
+        <li>Văn dĩ tải đạo</li>
+        <li>Ngọc bất trác bất thành khí</li>
+        <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
+        <li>Độc thư phá vạn quyển, hạ bút như thần</li>
+        <li>Học như nghịch thủy hành chu</li>
+        <li>Tự cổ anh hùng xuất thiếu niên</li>
+      </ul>
+
+      <!-- Liên kết MXH -->
+      <div class="social-links fade-in">
+        <a href="https://www.facebook.com/huy.nguyen.165362/" target="_blank">📘</a>
+        <a href="https://twitter.com/" target="_blank">🐦</a>
+        <a href="https://instagram.com/" target="_blank">📸</a>
+        <a href="https://github.com/" target="_blank">💻</a>
       </div>
-      <div class="intro-card fade-in">
-        <h3>🚀 Mục tiêu</h3>
-        <p>Phát triển bản thân không ngừng, đóng góp cho cộng đồng, và theo đuổi một cuộc sống ý nghĩa.</p>
-      </div>
+
+      <footer>© 2025 NGUYEN THANH HUY</footer>
     </div>
-
-    <h2>10 câu thi từ tôi yêu thích</h2>
-    <ul class="three-columns fade-in">
-      <li>Quân tử chi giao đạm nhược thủy</li>
-      <li>Phù vân du tử, bất khả cư luyến</li>
-      <li>Thiên sinh ngã tài tất hữu dụng</li>
-      <li>Đào lý bất ngôn, hạ tự thành khê</li>
-      <li>Văn dĩ tải đạo</li>
-      <li>Ngọc bất trác bất thành khí</li>
-      <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
-      <li>Độc thư phá vạn quyển, hạ bút như thần</li>
-      <li>Học như nghịch thủy hành chu</li>
-      <li>Tự cổ anh hùng xuất thiếu niên</li>
-    </ul>
-
-    <div class="social-links fade-in">
-      <a href="https://www.facebook.com/huy.nguyen.165362/" target="_blank">📘</a>
-      <a href="https://twitter.com/" target="_blank">🐦</a>
-      <a href="https://instagram.com/" target="_blank">📸</a>
-      <a href="https://github.com/" target="_blank">💻</a>
-    </div>
-
-    <!-- Nhạc nền -->
-    <audio id="bg-music" autoplay loop>
-      <source src="nhac.mp3" type="audio/mpeg">
-    </audio>
-    <button class="music-btn" onclick="toggleMusic()">🎵 Bật / Tắt nhạc</button>
-
-    <footer>© 2025 NGUYEN THANH HUY</footer>
   </div>
 
   <script>
@@ -280,6 +327,17 @@
       }
     }
 
+    function checkAnswer(option) {
+      if(option === 'B') {
+        document.getElementById("quiz-container").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+        document.body.classList.add("bg-active");
+      } else {
+        document.getElementById("quiz-error").style.display = "block";
+      }
+    }
+
+    // Fade-in khi scroll
     document.addEventListener("scroll", () => {
       document.querySelectorAll(".fade-in").forEach(el => {
         const rect = el.getBoundingClientRect();
