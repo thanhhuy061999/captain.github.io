@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Giới thiệu - Thanh Huy (Captain)</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -11,90 +11,102 @@
     }
 
     body {
+      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #f9fafb;
-      color: #333;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       line-height: 1.6;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
       padding: 40px 20px;
+    }
+
+    .container {
       max-width: 800px;
       margin: auto;
     }
 
     h1 {
-      color: #2c3e50;
-      font-size: 2em;
+      font-size: 2.5em;
       margin-bottom: 0.2em;
+      color: #f1c40f;
     }
 
     h2 {
-      color: #34495e;
+      color: #ecf0f1;
       margin-top: 2em;
     }
 
     p {
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
 
     blockquote {
       margin: 20px 0;
       padding: 15px 20px;
-      background: #ecf0f1;
+      background: rgba(255, 255, 255, 0.1);
       border-left: 5px solid #3498db;
       font-style: italic;
-      color: #555;
+      color: #ecf0f1;
     }
 
     ul {
-      margin: 15px 0;
       padding-left: 20px;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     footer {
+      margin-top: 50px;
       text-align: center;
-      margin-top: 60px;
       font-size: 0.9em;
-      color: #999;
+      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 20px 15px;
-      }
-
-      h1 {
-        font-size: 1.5em;
-      }
+      h1 { font-size: 2em; }
+      p { font-size: 1em; }
     }
   </style>
 </head>
 <body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
+      <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
 
-  <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
-  <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
+      <blockquote>
+        "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
+      </blockquote>
 
-  <blockquote>
-    "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
-  </blockquote>
+      <h2>10 câu thi từ tôi yêu thích</h2>
+      <ul>
+        <li>Quân tử chi giao đạm nhược thủy</li>
+        <li>Phù vân du tử, bất khả cư luyến</li>
+        <li>Thiên sinh ngã tài tất hữu dụng</li>
+        <li>Đào lý bất ngôn, hạ tự thành khê</li>
+        <li>Văn dĩ tải đạo</li>
+        <li>Ngọc bất trác bất thành khí</li>
+        <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
+        <li>Độc thư phá vạn quyển, hạ bút như thần</li>
+        <li>Học như nghịch thủy hành chu</li>
+        <li>Tự cổ anh hùng xuất thiếu niên</li>
+      </ul>
 
-  <h2>10 câu thi từ tôi yêu thích</h2>
-  <ul>
-    <li>Quân tử chi giao đạm nhược thủy</li>
-    <li>Phù vân du tử, bất khả cư luyến</li>
-    <li>Thiên sinh ngã tài tất hữu dụng</li>
-    <li>Đào lý bất ngôn, hạ tự thành khê</li>
-    <li>Văn dĩ tải đạo</li>
-    <li>Ngọc bất trác bất thành khí</li>
-    <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
-    <li>Độc thư phá vạn quyển, hạ bút như thần</li>
-    <li>Học như nghịch thủy hành chu</li>
-    <li>Tự cổ anh hùng xuất thiếu niên</li>
-  </ul>
-
-  <footer>© 2025 NGUYEN THANH HUY</footer>
-
+      <footer>© 2025 NGUYEN THANH HUY</footer>
+    </div>
+  </div>
 </body>
 </html>
