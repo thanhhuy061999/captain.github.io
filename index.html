@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Giới thiệu - Thanh Huy (Captain)</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome để có icon mạng xã hội -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -78,8 +81,33 @@
       margin-bottom: 10px;
     }
 
+    .social-links {
+      margin: 40px 0 20px 0;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(241, 196, 15, 0.2);
+      border-radius: 50%;
+      color: #f1c40f;
+      font-size: 1.2em;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #f1c40f;
+      color: #000;
+    }
+
     footer {
-      margin-top: 50px;
+      margin-top: 10px;
       text-align: center;
       font-size: 0.9em;
       color: #ccc;
@@ -113,9 +141,9 @@
     <img
       src="avt.jpg" 
       alt="Ảnh đại diện Thanh Huy"
-      style="width:150px; border-radius:50%;
       class="avatar"
     />
+
     <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
     <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
 
@@ -136,6 +164,14 @@
       <li>Học như nghịch thủy hành chu</li>
       <li>Tự cổ anh hùng xuất thiếu niên</li>
     </ul>
+
+    <!-- Liên kết mạng xã hội ở cuối trang -->
+    <div class="social-links">
+      <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://github.com/thanhhuy061999" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/yourprofile/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://zalo.me/yourzaloid" target="_blank"><i class="fas fa-comment"></i></a>
+    </div>
 
     <footer>© 2025 NGUYEN THANH HUY</footer>
   </div>
