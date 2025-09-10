@@ -89,6 +89,7 @@
     }
 
     .social-links a {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,6 +105,28 @@
     .social-links a:hover {
       background: #f1c40f;
       color: #000;
+    }
+
+    /* Tooltip */
+    .social-links a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      font-size: 0.8em;
+      padding: 5px 8px;
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .social-links a:hover::after {
+      opacity: 1;
     }
 
     footer {
@@ -167,10 +190,10 @@
 
     <!-- Liên kết mạng xã hội ở cuối trang -->
     <div class="social-links">
-      <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://github.com/thanhhuy061999" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/yourprofile/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://zalo.me/yourzaloid" target="_blank"><i class="fas fa-comment"></i></a>
+      <a href="https://facebook.com/yourprofile" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://github.com/thanhhuy061999" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/yourprofile/" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://zalo.me/yourzaloid" target="_blank" data-tooltip="Zalo"><i class="fas fa-comment"></i></a>
     </div>
 
     <footer>© 2025 NGUYEN THANH HUY</footer>
