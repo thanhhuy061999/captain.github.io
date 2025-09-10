@@ -6,13 +6,11 @@
   <title>Giới thiệu - Thanh Huy (Captain)</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* --- Background động với ảnh + zoom --- */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       color: #fff;
       line-height: 1.6;
-
       background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
       background-size: cover;
       animation: zoomBG 30s infinite alternate ease-in-out;
@@ -31,7 +29,6 @@
       align-items: center;
     }
 
-    /* --- Avatar glow pulse --- */
     .avatar {
       width: 150px;
       height: 150px;
@@ -43,12 +40,10 @@
       margin-bottom: 20px;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
+      0%,100% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
       50% { box-shadow: 0 0 40px rgba(241,196,15,1); }
-      100% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
     }
 
-    /* --- Tiêu đề typing gradient --- */
     h1 {
       font-size: 2.5em;
       background: linear-gradient(90deg, #f1c40f, #e67e22, #e74c3c);
@@ -65,11 +60,29 @@
     @keyframes typing { from { width: 0; } to { width: 100%; } }
     @keyframes blink { 50% { border-color: transparent; } }
 
-    p {
-      font-size: 1.2em;
-      text-align: center;
-      max-width: 600px;
+    /* Visualizer */
+    .visualizer {
+      display: flex;
+      gap: 4px;
+      margin: 15px 0 25px;
+      height: 40px;
+      align-items: flex-end;
     }
+    .bar {
+      width: 6px;
+      background: linear-gradient(180deg, #f1c40f, #e74c3c);
+      animation: bounce 1s infinite ease-in-out;
+    }
+    .bar:nth-child(2) { animation-delay: 0.1s; }
+    .bar:nth-child(3) { animation-delay: 0.2s; }
+    .bar:nth-child(4) { animation-delay: 0.3s; }
+    .bar:nth-child(5) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%,100% { height: 10px; }
+      50% { height: 40px; }
+    }
+
+    p { font-size: 1.2em; text-align: center; max-width: 600px; }
 
     blockquote {
       margin: 20px 0;
@@ -82,7 +95,6 @@
       text-align: center;
     }
 
-    /* --- H2 wave underline --- */
     h2 {
       position: relative;
       display: inline-block;
@@ -105,7 +117,6 @@
       100% { transform: scaleX(0); }
     }
 
-    /* --- Intro grid --- */
     .intro-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -127,7 +138,6 @@
       background: rgba(255,255,255,0.15);
     }
 
-    /* --- 3 cột thi từ --- */
     .three-columns {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -139,7 +149,6 @@
     }
     .three-columns li { margin-bottom: 8px; }
 
-    /* --- Social links --- */
     .social-links {
       margin-top: 40px;
       display: flex;
@@ -164,14 +173,26 @@
       color: #000;
     }
 
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #ccc;
+    footer { margin-top: 50px; text-align: center; font-size: 0.9em; color: #ccc; }
+
+    .music-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #f1c40f, #e67e22);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #e67e22, #e74c3c);
+      color: #fff;
     }
 
-    /* --- Fade-in scroll --- */
     .fade-in { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -187,10 +208,14 @@
   <div class="overlay">
     <img src="avt.jpg" alt="Ảnh đại diện Thanh Huy" class="avatar"/>
 
-    <!-- Nhạc nền -->
-    <audio autoplay loop>
-      <source src="nhac.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Visualizer -->
+    <div class="visualizer">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
 
     <h1>Xin chào, tôi là Thanh Huy (Captain)</h1>
     <p>Bạn dễ thương lắm mới vào xem trang cá nhân của mình á hehe!</p>
@@ -199,7 +224,6 @@
       "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
     </blockquote>
 
-    <!-- 3 cột giới thiệu -->
     <h2>Giới thiệu bản thân</h2>
     <div class="intro-grid">
       <div class="intro-card fade-in">
@@ -216,7 +240,6 @@
       </div>
     </div>
 
-    <!-- Danh sách 10 câu thi từ -->
     <h2>10 câu thi từ tôi yêu thích</h2>
     <ul class="three-columns fade-in">
       <li>Quân tử chi giao đạm nhược thủy</li>
@@ -231,7 +254,6 @@
       <li>Tự cổ anh hùng xuất thiếu niên</li>
     </ul>
 
-    <!-- Liên kết MXH -->
     <div class="social-links fade-in">
       <a href="https://www.facebook.com/huy.nguyen.165362/" target="_blank">📘</a>
       <a href="https://twitter.com/" target="_blank">🐦</a>
@@ -239,11 +261,25 @@
       <a href="https://github.com/" target="_blank">💻</a>
     </div>
 
+    <!-- Nhạc nền -->
+    <audio id="bg-music" autoplay loop>
+      <source src="nhac.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" onclick="toggleMusic()">🎵 Bật / Tắt nhạc</button>
+
     <footer>© 2025 NGUYEN THANH HUY</footer>
   </div>
 
   <script>
-    // Fade-in khi scroll
+    function toggleMusic() {
+      const audio = document.getElementById("bg-music");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
     document.addEventListener("scroll", () => {
       document.querySelectorAll(".fade-in").forEach(el => {
         const rect = el.getBoundingClientRect();
