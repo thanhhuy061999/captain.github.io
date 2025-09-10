@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Giới thiệu - Thanh Huy (Captain)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -24,17 +24,26 @@
       background-color: rgba(0, 0, 0, 0.6);
       min-height: 100vh;
       padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f1c40f;
+      box-shadow: 0 0 15px rgba(241, 196, 15, 0.6);
+      margin-bottom: 20px;
     }
 
     h1 {
       font-size: 2.5em;
       margin-bottom: 0.2em;
       color: #f1c40f;
+      text-align: center;
     }
 
     h2 {
@@ -44,6 +53,8 @@
 
     p {
       font-size: 1.2em;
+      text-align: center;
+      max-width: 600px;
     }
 
     blockquote {
@@ -53,10 +64,14 @@
       border-left: 5px solid #3498db;
       font-style: italic;
       color: #ecf0f1;
+      max-width: 700px;
+      text-align: center;
     }
 
     ul {
       padding-left: 20px;
+      max-width: 700px;
+      margin: auto;
     }
 
     li {
@@ -71,42 +86,57 @@
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      p { font-size: 1em; }
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <div class="container">
-      <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
-      <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
+    <img
+      src="https://i.pravatar.cc/150?u=thanhhuy" 
+      alt="Ảnh đại diện Thanh Huy"
+      class="avatar"
+    />
+    <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
+    <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
 
-      <blockquote>
-        "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
-      </blockquote>
+    <blockquote>
+      "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
+    </blockquote>
 
-      <h2>10 câu thi từ tôi yêu thích</h2>
-      <ul>
-        <li>Quân tử chi giao đạm nhược thủy</li>
-        <li>Phù vân du tử, bất khả cư luyến</li>
-        <li>Thiên sinh ngã tài tất hữu dụng</li>
-        <li>Đào lý bất ngôn, hạ tự thành khê</li>
-        <li>Văn dĩ tải đạo</li>
-        <li>Ngọc bất trác bất thành khí</li>
-        <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
-        <li>Độc thư phá vạn quyển, hạ bút như thần</li>
-        <li>Học như nghịch thủy hành chu</li>
-        <li>Tự cổ anh hùng xuất thiếu niên</li>
-      </ul>
+    <h2>10 câu thi từ tôi yêu thích</h2>
+    <ul>
+      <li>Quân tử chi giao đạm nhược thủy</li>
+      <li>Phù vân du tử, bất khả cư luyến</li>
+      <li>Thiên sinh ngã tài tất hữu dụng</li>
+      <li>Đào lý bất ngôn, hạ tự thành khê</li>
+      <li>Văn dĩ tải đạo</li>
+      <li>Ngọc bất trác bất thành khí</li>
+      <li>Tri kỷ giả, bất như tri kỷ chi tri kỷ</li>
+      <li>Độc thư phá vạn quyển, hạ bút như thần</li>
+      <li>Học như nghịch thủy hành chu</li>
+      <li>Tự cổ anh hùng xuất thiếu niên</li>
+    </ul>
 
-      <footer>© 2025 NGUYEN THANH HUY</footer>
-    </div>
+    <footer>© 2025 NGUYEN THANH HUY</footer>
   </div>
 </body>
 </html>
