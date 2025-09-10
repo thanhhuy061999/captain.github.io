@@ -52,6 +52,7 @@
     h2 {
       color: #ecf0f1;
       margin-top: 2em;
+      text-align: center;
     }
 
     p {
@@ -71,14 +72,25 @@
       text-align: center;
     }
 
-    ul {
-      padding-left: 20px;
-      max-width: 700px;
-      margin: auto;
+    /* Danh sách 3 cột */
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px 30px;
+      list-style: disc inside;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0;
     }
 
-    li {
-      margin-bottom: 10px;
+    .three-columns li {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .three-columns {
+        grid-template-columns: 1fr;
+      }
     }
 
     .social-links {
@@ -131,8 +143,8 @@
 
     footer {
       margin-top: 10px;
-      text-align: center;
-      font-size: 0.9em;
+      text-align: right;
+      font-size: 0.5em;
       color: #ccc;
     }
 
@@ -167,15 +179,15 @@
       class="avatar"
     />
 
-    <h1>Xin chào, tôi là Thanh Huy (Captain) (SN.1999)</h1>
-    <p>Cảm ơn bạn đã ghé thăm trang cá nhân của tôi!</p>
+    <h1>Xin chào, tôi là Thanh Huy (Captain)</h1>
+    <p>Bạn dễ thương lắm mới ghé thăm trang cá nhân của mình đó!</p>
 
     <blockquote>
       "Một lần Khổng Tử hỏi con trai 'học Kinh Thi chưa?' Người con trả lời 'Chưa'. Khổng Tử nói: 'Không học Kinh Thi thì khi yêu đương không biết nói năng ra sao'."
     </blockquote>
 
     <h2>10 câu thi từ tôi yêu thích</h2>
-    <ul>
+    <ul class="three-columns">
       <li>Quân tử chi giao đạm nhược thủy</li>
       <li>Phù vân du tử, bất khả cư luyến</li>
       <li>Thiên sinh ngã tài tất hữu dụng</li>
@@ -190,7 +202,7 @@
 
     <!-- Liên kết mạng xã hội ở cuối trang -->
     <div class="social-links">
-      <a href="https://facebook.com/yourprofile" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.facebook.com/huy.nguyen.165362/" target="_blank" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="https://github.com/thanhhuy061999" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/yourprofile/" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://zalo.me/yourzaloid" target="_blank" data-tooltip="Zalo"><i class="fas fa-comment"></i></a>
