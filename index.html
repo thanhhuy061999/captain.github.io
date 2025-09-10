@@ -6,21 +6,20 @@
   <title>Giới thiệu - Thanh Huy (Captain)</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* --- Background gradient động --- */
+    /* --- Background động với ảnh + zoom --- */
     body {
       margin: 0;
-      background: linear-gradient(-45deg, #1a1a1a, #0f2027, #203a43, #2c5364);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
       font-family: 'Roboto', sans-serif;
       color: #fff;
       line-height: 1.6;
-    }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      animation: zoomBG 30s infinite alternate ease-in-out;
+    }
+    @keyframes zoomBG {
+      from { background-size: 100% 100%; }
+      to { background-size: 110% 110%; }
     }
 
     .overlay {
@@ -43,14 +42,13 @@
       animation: pulse 3s infinite;
       margin-bottom: 20px;
     }
-
     @keyframes pulse {
       0% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
       50% { box-shadow: 0 0 40px rgba(241,196,15,1); }
       100% { box-shadow: 0 0 20px rgba(241,196,15,0.8); }
     }
 
-    /* --- Tiêu đề gradient + typing --- */
+    /* --- Tiêu đề typing gradient --- */
     h1 {
       font-size: 2.5em;
       background: linear-gradient(90deg, #f1c40f, #e67e22, #e74c3c);
@@ -64,14 +62,8 @@
       animation: typing 5s steps(40, end) forwards, blink 0.8s infinite;
       text-align: center;
     }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
 
     p {
       font-size: 1.2em;
@@ -121,7 +113,6 @@
       max-width: 1000px;
       margin: 30px auto;
     }
-
     .intro-card {
       background: rgba(255,255,255,0.08);
       padding: 20px;
@@ -129,14 +120,8 @@
       text-align: center;
       transition: transform 0.3s ease, background 0.3s ease;
     }
-    .intro-card h3 {
-      color: #f1c40f;
-      margin-bottom: 10px;
-    }
-    .intro-card p {
-      font-size: 1em;
-      color: #ecf0f1;
-    }
+    .intro-card h3 { color: #f1c40f; margin-bottom: 10px; }
+    .intro-card p { font-size: 1em; color: #ecf0f1; }
     .intro-card:hover {
       transform: perspective(600px) rotateY(5deg) scale(1.05);
       background: rgba(255,255,255,0.15);
@@ -152,9 +137,7 @@
       margin: 20px auto;
       padding: 0;
     }
-    .three-columns li {
-      margin-bottom: 8px;
-    }
+    .three-columns li { margin-bottom: 8px; }
 
     /* --- Social links --- */
     .social-links {
@@ -188,30 +171,15 @@
       color: #ccc;
     }
 
-    /* --- Fade-in khi scroll --- */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* --- Fade-in scroll --- */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
-      .intro-grid {
-        grid-template-columns: 1fr;
-      }
-      .three-columns {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 2em;
-      }
-      p {
-        font-size: 1em;
-      }
+      .intro-grid { grid-template-columns: 1fr; }
+      .three-columns { grid-template-columns: 1fr; }
+      h1 { font-size: 2em; }
+      p { font-size: 1em; }
     }
   </style>
 </head>
@@ -275,7 +243,7 @@
   </div>
 
   <script>
-    // Script hiệu ứng fade-in khi scroll
+    // Fade-in khi scroll
     document.addEventListener("scroll", () => {
       document.querySelectorAll(".fade-in").forEach(el => {
         const rect = el.getBoundingClientRect();
