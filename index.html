@@ -306,7 +306,7 @@
 
   <footer id="contact">
     <div class="footer-inner">
-      <div><h3>🍊 Huy Fruit & Snack</h3><p>Trái cây tươi và đồ ăn vặt cho những ngày cần một chút ngọt ngào.</p><p>📍 Sa Đéc, Đồng Tháp<br>📞 09xx xxx xxx<br>✉️ huyfruit@example.com</p></div>
+      <div><h3>🍊 Huy Fruit & Snack</h3><p>Trái cây tươi và đồ ăn vặt cho những ngày cần một chút ngọt ngào.</p><p>📍 Tân Nhuận Đông, Đồng Tháp<br>📞 0365541099<br>✉️ huyfruit@example.com</p></div>
       <div><h3>Mua hàng</h3><p><a href="#products">Sản phẩm</a><br><a href="#categories">Danh mục</a><br><a href="#deal">Khuyến mãi</a></p></div>
       <div><h3>Hỗ trợ</h3><p>🚚 Giao hàng tận nơi<br>💳 Thanh toán khi nhận hàng<br>💬 Hỗ trợ đặt hàng</p></div>
     </div>
@@ -388,7 +388,7 @@ function saveCart(){localStorage.setItem("huyCart",JSON.stringify(cart))}
 function renderCart(){
   const box=document.getElementById("cartItems");
   document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
-  if(!cart.length){box.innerHTML='<div class="empty">Giỏ hàng đang trống 🍊<br><small>Thêm vài món ngon vào nhé!</small></div>';document.getElementById("cartTotal").textContent="0đ";return}
+  if(!cart.length){box.innerHTML='<div class="empty">Giỏ hàng đang trống kìa mua hàng đi chời 🍊<br><small>Thêm nhiều món ngon vào nhé!</small></div>';document.getElementById("cartTotal").textContent="0đ";return}
   let total=0;
   box.innerHTML=cart.map(x=>{
     const p=products.find(p=>p.id===x.id); total+=p.price*x.qty;
@@ -405,7 +405,7 @@ function openCart(){document.getElementById("cartModal").classList.add("open")}
 function closeCart(){document.getElementById("cartModal").classList.remove("open")}
 function checkout(){
   if(!cart.length){showToast("Giỏ hàng đang trống 😅");return}
-  showToast("Đã ghi nhận đơn! Bạn có thể thay số điện thoại ở phần Liên hệ.");
+  showToast("Đã ghi nhận đơn! Bạn có thể liên hệ số điện thoại liên hệ ở bên dưới.");
   closeCart();
 }
 function showToast(msg){
